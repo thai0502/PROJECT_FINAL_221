@@ -53,6 +53,7 @@ namespace BussinessLogic
             {
                 context.Users.Add(user);
                 context.SaveChanges();
+                
                 return user;
             }
             catch (Exception ex)

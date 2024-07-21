@@ -31,7 +31,7 @@ namespace WEB.Pages.UserManager.ManagerProduct
                 return Redirect("/SignIn");
             }
 
-            if (user.RoldeId != 1)
+            if (user.RoldeId == 3)
             {
                 Product = await _context.Products
                     .Include(p => p.Category)

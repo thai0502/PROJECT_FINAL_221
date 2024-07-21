@@ -54,7 +54,7 @@ namespace BussinessLogic
             }
             return false;
         }
-
+        
         public bool topDownMoney(int userID, decimal amount)
         {
             Wallet updateWallet = context.Wallets.FirstOrDefault(x => x.UserId == userID);
@@ -76,6 +76,19 @@ namespace BussinessLogic
                 }
             }
             return false;
+        }
+
+        public Wallet AddWallet(User user)
+        {
+            Wallet wallet = new Wallet
+            {
+                UserId = user.UserId,
+                Balance = 0,
+                LastUpdate = DateTime.UtcNow
+            };
+            context.Wallets.Add(wallet);
+            context.SaveChanges();
+            return wallet;
         }
     }
 }
